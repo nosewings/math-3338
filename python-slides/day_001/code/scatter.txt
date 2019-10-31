@@ -1,0 +1,5 @@
+>>> from math import pi, sin
+>>> xs = [2*pi*i/100 for i in range(101)]
+>>> ys = [sin(x) for x in xs]
+>>> import matplotlib.pyplot as plt
+>>> plt.scatter(xs, ys)

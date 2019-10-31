@@ -1,0 +1,7 @@
+*.aux
+*.log
+*.out
+*.pdf
+__pycache__/
+auto/
+.ipynb_checkpoints/

@@ -1,0 +1,8 @@
+>>> type(True)
+<type 'bool'>
+>>> True or False
+True
+>>> True and False
+False
+>>> not True
+False

@@ -1,0 +1,7 @@
+def fib(n):
+    ret = np.zeros(n)
+    x, y = 0, 1
+    for i in range(n):
+        ret[i] = x
+        x, y = y, x+y
+    return ret

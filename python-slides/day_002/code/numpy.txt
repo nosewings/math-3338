@@ -1,0 +1,9 @@
+>>> import numpy as np
+>>> x = np.array([1, 2, 3]); x
+array([1, 2, 3])
+>>> type(x)
+<class 'numpy.ndarray'>
+>>> x[0]
+1
+>>> x[-1]
+3

@@ -1,0 +1,33 @@
+>>> x = np.arange(12).reshape(4, 3); x
+array([[ 0,  1,  2],
+       [ 3,  4,  5],
+       [ 6,  7,  8],
+       [ 9, 10, 11]])
+>>> 2*x
+array([[ 0,  2,  4],
+       [ 6,  8, 10],
+       [12, 14, 16],
+       [18, 20, 22]])
+>>> y = np.arange(3); y
+array([0, 1, 2])
+>>> x + y
+array([[ 0,  2,  4],
+       [ 3,  5,  7],
+       [ 6,  8, 10],
+       [ 9, 11, 13]])
+>>> z = np.arange(4); z
+array([0, 1, 2, 3])
+>>> x + z
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: operands could not be broadcast together with shapes (4,3) (4,)
+>>> z = z.reshape(4, 1); z
+array([[0],
+       [1],
+       [2],
+       [3]])
+>>> x + z
+array([[ 0,  1,  2],
+       [ 4,  5,  6],
+       [ 8,  9, 10],
+       [12, 13, 14]])

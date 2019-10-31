@@ -1,0 +1,17 @@
+>>> x = np.diag([1, 2, 3]); x
+array([[1, 0, 0],
+       [0, 2, 0],
+       [0, 0, 3]])
+>>> x == 0
+array([[False,  True,  True],
+       [ True, False,  True],
+       [ True,  True, False]])
+>>> (x == 0).all()
+False
+>>> x[x == 0] = 10
+>>> x
+array([[ 1, 10, 10],
+       [10,  2, 10],
+       [10, 10,  3]])
+>>> (x == 0).any()
+False

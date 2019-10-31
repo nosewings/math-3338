@@ -1,0 +1,33 @@
+>>> t = 1, 2
+>>> t
+(1, 2)
+>>> type(t)
+<class 'tuple'>
+>>> len(t)
+2
+>>> t[0]
+1
+>>> t[0] = 0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> x, y = t
+>>> x
+1
+>>> y
+2
+>>> u = 1, 2, 3
+>>> u
+(1, 2, 3)
+>>> v = 1,
+>>> v
+(1,)
+>>> type(v)
+<class 'tuple'>
+>>> len(v)
+1
+>>> r = ()
+>>> type(r)
+<class 'tuple'>
+>>> len(r)
+0

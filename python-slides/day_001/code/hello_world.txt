@@ -1,0 +1,8 @@
+>>> print('Hello, world!')
+Hello, world!
+>>> 'Hello, world!'
+'Hello, world!'
+>>> "Hello, world!"
+'Hello, world!'
+>>> ' '.join(['Hello,', 'world!'])
+'Hello, world!'
