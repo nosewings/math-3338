@@ -64,19 +64,18 @@ def _spline_polys(x, y):
     return np.column_stack([d, c, b, a])
 
 
-def _spline(xs, ys):
+def coefficients(xs, ys):
     xs = np.asarray(xs)
     ys = np.asarray(ys)
-    ixs = np.argsort(xs)
-    xs = xs[ixs]
-    ys = ys[ixs]
+    if not np.all(np.diff(xs) > 0):
+        raise ValueError
     polys = _spline_polys(xs, ys)
-    return xs, ys, polys
+    return polys
 
 
-class Spline:
+class CubicSpline:
     def __init__(self, x, y):
-        x, y, c = _spline(x, y)
+        c = coefficients(x, y)
         self._start = x[0]
         self._end = x[-1]
         self._xs = x[:-1]
