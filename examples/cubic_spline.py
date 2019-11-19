@@ -2,8 +2,22 @@ import numpy as np
 import scipy.linalg
 
 
+# We don't actually use this, but we keep it around for debugging.
+def _spline_matrix(h):
+    n = len(h)
+    ret = np.zeros([n+1, n+1])
+    ret[0, 0] = 1
+    ret[-1, -1] = 1
+    for i in range(1, n):
+        h0 = h[i-1]
+        h1 = h[i]
+        ret[i, i-1] = h0
+        ret[i, i] = 2*(h0 + h1)
+        ret[i, i+1] = h1
+    return ret
+
+
 def _spline_banded_matrix(h):
-    h = np.asarray(h)
     n = len(h)
     ret = np.zeros([3, n+1])
     ret[1, 0] = 1
@@ -17,8 +31,6 @@ def _spline_banded_matrix(h):
 
 
 def _spline_vector(a, h):
-    a = np.asarray(a)
-    h = np.asarray(h)
     n = len(h)
     ret = np.empty([n+1])
     ret[0] = 0
@@ -33,8 +45,6 @@ def _spline_vector(a, h):
 
 
 def _spline_coefficients(x, y):
-    x = np.asarray(x)
-    y = np.asarray(y)
     a = y
     h = np.diff(x)
     A = _spline_banded_matrix(h)
@@ -57,8 +67,6 @@ def _untranslate_coefficients(x, a, b, c, d):
 
 
 def _spline_polys(x, y):
-    x = np.asarray(x)
-    y = np.asarray(y)
     a, b, c, d = _spline_coefficients(x, y)
     a, b, c, d = _untranslate_coefficients(x, a, b, c, d)
     return np.column_stack([d, c, b, a])
